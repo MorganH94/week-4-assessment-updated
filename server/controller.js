@@ -32,6 +32,18 @@ module.exports = {
         fortuneArray.splice(index, 1)
 
         res.status(200).send(fortuneArray)
-    }
-
+    },
+    // updateFortune: (req, res) => {
+    //     const {type} = req.body;
+    //     let index = fortuneArray.findIndex((elem) => elem.id === +req.params.id)
+    //     if(type === 'minus' && fortune[index]. rating > 1){
+    //         fortunes[index].rating -= 1;
+    //         res.status(200).send(fortunes)
+    //     } else if(type === 'plus' && fortunes[index].rating < 5){
+    //         fortunes[index].rating += 1;
+    //         res.status(200).send(fortunes)
+    //     } else {
+    //         res.status(400).send('Invalid star rating!')
+    //     }
+    // }
 }

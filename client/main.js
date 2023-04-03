@@ -41,7 +41,7 @@ const addFortune = () => {
     fortuneDiv.innerHTML = ''
 
     let bodyObj = {
-        name: fortuneInput.value
+        fortune: fortuneInput.value
     }
 
     axios.post(`${baseURL}/fortunes`, bodyObj)
@@ -78,6 +78,8 @@ const deleteFortune = () => {
             console.log(err)
         });
 };
+
+// const updateMovie = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(moviesCallback).catch(errCallback)
 
 complimentBtn.addEventListener('click', getCompliment)
 getFortuneBtn.addEventListener('click', getFortune)

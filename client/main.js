@@ -2,6 +2,7 @@ console.log("I'm a fortune teller!")
 
 let baseURL = 'http://localhost:4000'
 
+
 let getFortuneBtn = document.querySelector('#getFortune')
 let fortuneDiv = document.querySelector('#fortuneDisplay')
 let addFortuneBtn = document.querySelector('#addButton')
@@ -9,10 +10,19 @@ let fortuneInput = document.querySelector('#newFortune')
 let deleteBtn = document.querySelector('#deleteButton')
 let deleteInput = document.querySelector('#fortuneId')
 
+const fortuneBtn = document.getElementById("fortuneButton")
+
 const complimentBtn = document.getElementById("complimentButton")
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
+        .then(res => {
+            const data = res.data;
+            alert(data);
+    });
+};
+const getFortunes = () => {
+    axios.get("http://localhost:4000/api/fortunes/")
         .then(res => {
             const data = res.data;
             alert(data);
@@ -79,9 +89,8 @@ const deleteFortune = () => {
         });
 };
 
-// const updateMovie = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(moviesCallback).catch(errCallback)
-
 complimentBtn.addEventListener('click', getCompliment)
+fortuneBtn.addEventListener('click', getFortunes)
 getFortuneBtn.addEventListener('click', getFortune)
 addFortuneBtn.addEventListener('click', addFortune)
 deleteBtn.addEventListener('click', deleteFortune)

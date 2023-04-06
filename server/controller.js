@@ -11,6 +11,16 @@ module.exports = {
       
         res.status(200).send(randomCompliment);
     },
+    getFortunes: (req, res) => {
+
+        fortunes = ['A beautiful, smart, and loving person will be coming into your life', 'A dubious friend may be an enemy in camouflage', 'A faithful friend is a strong defense', 'A feather inthe hand is better than a bird in the air', 'A fresh start will put you on your way'];
+      
+        // choose random compliment
+        let randomIndex = Math.floor(Math.random() * fortunes.length);
+        let randomFortune = fortunes[randomIndex];
+      
+        res.status(200).send(randomFortune);
+},
 
     getFortune: (req, res) => {
         res.status(200).send(fortuneArray)
@@ -32,18 +42,9 @@ module.exports = {
         fortuneArray.splice(index, 1)
 
         res.status(200).send(fortuneArray)
-    },
-    // updateFortune: (req, res) => {
-    //     const {type} = req.body;
-    //     let index = fortuneArray.findIndex((elem) => elem.id === +req.params.id)
-    //     if(type === 'minus' && fortune[index]. rating > 1){
-    //         fortunes[index].rating -= 1;
-    //         res.status(200).send(fortunes)
-    //     } else if(type === 'plus' && fortunes[index].rating < 5){
-    //         fortunes[index].rating += 1;
-    //         res.status(200).send(fortunes)
-    //     } else {
-    //         res.status(400).send('Invalid star rating!')
-    //     }
-    // }
+    }
+
 }
+
+
+
